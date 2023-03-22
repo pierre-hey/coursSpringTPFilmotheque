@@ -4,5 +4,5 @@ import fr.eni.movielibrary.bo.Member;
 
 public interface MemberService {
 
-    Member findParticipantByUserName(Member member);
+    Member findParticipantByUserNameAndPassword(String userName, String password);
 }

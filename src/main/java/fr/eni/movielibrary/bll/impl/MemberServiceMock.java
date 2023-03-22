@@ -35,13 +35,13 @@ public class MemberServiceMock implements MemberService {
 
 
     @Override
-    public Member findParticipantByUserName(Member member) {
+    public Member findParticipantByUserNameAndPassword(String userName, String password) {
 
-        System.out.println(member.toString());
+
         for (Member m : memberList) {
             // Si username et mdp sont identiques à un des membres, on considère que le login est ok
-            if (member.getUserName().equals(m.getUserName()) && member.getPassword().equals(m.getPassword())) {
-                return member;
+            if (userName.equals(m.getUserName()) && password.equals(m.getPassword())) {
+                return m;
             }
         }
         return null;

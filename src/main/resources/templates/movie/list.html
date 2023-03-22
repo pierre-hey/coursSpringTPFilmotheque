@@ -21,11 +21,14 @@
         </tr>
         </thead>
         <tr th:each="movie : ${moviesList}">
-            <td th:text="${movie.genre.name}"></td>
+            <td th:text="*{movie.genre.name}"></td>
             <td th:text="${movie.year}"></td>
             <td th:text="${movie.title}"></td>
             <td th:text="${movie.director.lastName} + ' ' + ${movie.director.firstName}"></td>
-            <td><a th:href="@{movies/detail(id=${movie.id})}">Details</a></td>
+            <td>
+                <a th:href="@{movies/detail(id=${movie.id})}">Details</a>
+                <a th:href="@{opinions/add(id=${movie.id})}">Avis</a>
+            </td>
 
         </tr>
     </table>

@@ -38,6 +38,16 @@
     <label>Synopsis :
         <textarea style="resize: none;" rows="4" cols="50" disabled th:text="*{synopsis}"></textarea>
     </label>
+
+    <span th:if="*{not #lists.isEmpty(opinions)}">
+    <label> Commentaire : </label>
+    <ul>
+        <li th:each="opinion : *{opinions}"
+            th:text="${opinion.comment} + ' (' + ${opinion.member.userName} +')'"></li>
+    </ul>
+    </span>
+
+
 </div>
 
 </body>

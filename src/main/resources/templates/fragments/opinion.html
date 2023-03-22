@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Filmothèque</title>
+  <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<div th:fragment="opinion">
+  <label>
+    Note :
+    <input type="number" name="rating" min="0" max="5">
+  </label>
+
+  <label>
+    Commentaire :
+    <textarea name="comment"></textarea>
+  </label>
+
+</div>
+
+</body>
+</html>

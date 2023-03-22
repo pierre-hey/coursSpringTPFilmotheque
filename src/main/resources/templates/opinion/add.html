@@ -8,9 +8,10 @@
 <body>
 <div th:replace="~{fragments/header :: header}"></div>
 <div class="content">
-    <h1>Ajouter un film</h1>
-    <form th:action="@{add}" th:object="${movie}" method="post">
-        <div th:replace="~{fragments/movie :: movie}"></div>
+    <h1>Ajouter un avis au film : <span th:text="${movie.title}"></span></h1>
+
+    <form th:action="@{add(id=${movie.id})}" th:object="${opinion}" method="post">
+        <div th:replace="~{fragments/opinion :: opinion}" th:object="${opinion}"></div>
         <button type="submit">Enregistrer</button>
     </form>
 </div>
