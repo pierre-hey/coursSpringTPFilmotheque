@@ -287,3 +287,12 @@ span.psw {
     }
 }
 /* login form */
+
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: #ff6a6a;
+    margin: 0 0 10px 20px;
+}

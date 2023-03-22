@@ -79,8 +79,9 @@ public class MovieController {
                 result.getAllErrors().forEach(e -> System.out.println(e.getDefaultMessage()));
                 model.addAttribute("participantsList", movieService.getParticipants());
                 model.addAttribute("genreList", movieService.getGenres());
-                //    model.addAttribute("movie", movie);
-                return "redirect:/movies/add";
+                model.addAttribute("movie", movie);
+                //return "redirect:/movies/add";
+                return "movie/add";
             }
 
         } else {

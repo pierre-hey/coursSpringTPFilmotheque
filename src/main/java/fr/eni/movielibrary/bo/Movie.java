@@ -30,6 +30,7 @@ public class Movie {
     private Integer duration;
 
     @Size(min = 1, max = 250, message = "Le commentaire doit faire entre 1 et 250 caractères")
+    @NotBlank(message = "Ne doit pas être vide")
     private String synopsis;
 
 
