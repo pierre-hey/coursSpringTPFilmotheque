@@ -28,6 +28,9 @@ public class LoginController {
     @PostMapping("/login")
     public String login(Member member, HttpSession session) {
 
+        // Si les informations du formulaire sont conformes à ce qu'il y a dans le mock
+        // le membre est connecté, sinon renvoie vers la page de connexion
+        // TODO : On pourrait rajouter un message en cas d'erreur de connexion
         if (member.equals(memberService.findParticipantByUserName(member))) {
             // Logged => on met le membre en session
             session.setAttribute("memberLogged", member);
