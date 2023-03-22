@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Filmothèque</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="content" th:fragment="movie">
+    <form th:action="@{add}" th:object="${movie}" method="post">
+        <h1>Détail du film</h1>
+
+        <label>
+            Titre :
+            <input type="text" name="title">
+        </label>
+
+        <label>
+            Année de sortie :
+            <input type="number" name="year">
+        </label>
+
+        <label>
+            Réalisateur :
+            <select th:field="*{director}">
+                <option th:each="participant : ${participantsList}"
+                        th:value="${participant.id}"
+                        th:text="${participant.lastName} + ' ' +${participant.firstName}"></option>
+            </select>
+        </label>
+
+        <label>
+            Durée :
+            <input type="number" name="duration">
+        </label>
+
+
+        <label>
+            Genre :
+            <select th:field="*{genre}">
+                <option th:each="genre : ${genreList}"
+                        th:value="${genre.id}"
+                        th:text="${genre.name}">
+
+                </option>
+            </select>
+        </label>
+
+        <label>
+            Synopsis :
+            <textarea name="synopsis"></textarea>
+        </label>
+
+        <label>
+            Acteur :
+            <select th:field="*{actors}" multiple >
+                <option th:each="participant : ${participantsList}"
+                        th:value="${participant.id}"
+                        th:text="${participant.lastName} + ' ' +${participant.firstName}"></option>
+            </select>
+        </label>
+        <button type="submit">Enregistrer</button>
+    </form>
+</div>
+
+</body>
+</html>

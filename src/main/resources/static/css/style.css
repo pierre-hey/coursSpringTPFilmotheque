@@ -3,8 +3,8 @@
 }
 
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     font-family: Montserrat, sans-serif;
 }
 
@@ -18,7 +18,7 @@ nav {
 nav > ul {
     display: flex;
     text-align: center;
-    box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.3);
+    box-shadow: 0 1px 2px 1px rgba(0,0,0,0.3);
     height: var(--hauteur-menu);
 }
 
@@ -88,16 +88,16 @@ li a {
 
 @keyframes apparitionSousMenu {
     0% {
-        box-shadow: 0px 3px 3px 1px rgba(0,0,0,0);
+        box-shadow: 0 3px 3px 1px rgba(0,0,0,0);
         border-top: 3px solid #2169EC;
     }
     30% {
-        box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.3);
+        box-shadow: 0 3px 3px 1px rgba(0,0,0,0.3);
     }
     100% {
         max-height: 50em;
         border-top: 3px solid #2169EC;
-        box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.3);
+        box-shadow: 0 3px 3px 1px rgba(0,0,0,0.3);
     }
 }
 
@@ -128,7 +128,7 @@ li > h2 > a{
 }
 
 /* Style inputs */
-input[type=text], select, textarea {
+input[type=text], select, textarea, input[type=number] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;

@@ -1,4 +1,4 @@
-package fr.eni.movielibrary.controller;
+package fr.eni.movielibrary.mmi.controller;
 
 import fr.eni.movielibrary.bll.MemberService;
 import fr.eni.movielibrary.bo.Member;

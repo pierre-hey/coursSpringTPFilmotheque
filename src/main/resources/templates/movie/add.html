@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Filmothèque</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+<div class="content">
+    <h1>Ajouter un film</h1>
+    <div th:replace="~{fragments/movie :: movie}" th:object="${movie}"></div>
+</div>
+</body>
+</html>
