@@ -1,4 +1,4 @@
-:root{
+:root {
     --hauteur-menu: 60px;
 }
 
@@ -18,7 +18,7 @@ nav {
 nav > ul {
     display: flex;
     text-align: center;
-    box-shadow: 0 1px 2px 1px rgba(0,0,0,0.3);
+    box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.3);
     height: var(--hauteur-menu);
 }
 
@@ -33,7 +33,7 @@ nav > ul > li {
     flex: 1;
 }
 
-nav > ul > li:hover > a{
+nav > ul > li:hover > a {
     color: #2169EC;
 }
 
@@ -49,14 +49,14 @@ li a {
     color: black;
 }
 
-.menu-deroulant > a:after{
+.menu-deroulant > a:after {
     content: '❯';
     font-size: 15px;
     margin-left: 7px;
     display: inline-block;
 }
 
-.menu-deroulant:hover > a:after{
+.menu-deroulant:hover > a:after {
     animation: rotationFleche 0.2s linear forwards;
 }
 
@@ -67,7 +67,7 @@ li a {
     50% {
         transform: rotate(45deg);
     }
-    100%{
+    100% {
         transform: rotate(90deg);
     }
 }
@@ -88,16 +88,16 @@ li a {
 
 @keyframes apparitionSousMenu {
     0% {
-        box-shadow: 0 3px 3px 1px rgba(0,0,0,0);
+        box-shadow: 0 3px 3px 1px rgba(0, 0, 0, 0);
         border-top: 3px solid #2169EC;
     }
     30% {
-        box-shadow: 0 3px 3px 1px rgba(0,0,0,0.3);
+        box-shadow: 0 3px 3px 1px rgba(0, 0, 0, 0.3);
     }
     100% {
         max-height: 50em;
         border-top: 3px solid #2169EC;
-        box-shadow: 0 3px 3px 1px rgba(0,0,0,0.3);
+        box-shadow: 0 3px 3px 1px rgba(0, 0, 0, 0.3);
     }
 }
 
@@ -116,7 +116,8 @@ li a {
 .sous-menu > li:hover > a {
     color: white;
 }
-li > h2 > a{
+
+.nav-h2 {
     align-items: center;
     align-content: center;
     display: flex;
@@ -154,7 +155,8 @@ input[type=submit] {
 input[type=submit]:hover {
     background-color: #45a049;
 }
-.content{
+
+.content {
     margin: 10px;
     width: 50%;
 }
@@ -168,23 +170,28 @@ table.blueTable {
     text-align: left;
     border-collapse: collapse;
 }
+
 table.blueTable td, table.blueTable th {
     border: 1px solid #AAAAAA;
     padding: 3px 2px;
 }
+
 table.blueTable tbody td {
     font-size: 13px;
 }
+
 table.blueTable tr:nth-child(even) {
     background: #D0E4F5;
 }
+
 table.blueTable thead {
     background: #1C6EA4;
-   /* background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-    background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
-    background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);*/
+    /* background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+     background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+     background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);*/
     border-bottom: 2px solid #444444;
 }
+
 table.blueTable thead th {
     font-size: 15px;
     font-weight: bold;
@@ -192,6 +199,7 @@ table.blueTable thead th {
     text-align: center;
     border-left: 2px solid #D0E4F5;
 }
+
 table.blueTable thead th:first-child {
     border-left: none;
 }
@@ -201,18 +209,21 @@ table.blueTable tfoot {
     font-weight: bold;
     color: #FFFFFF;
     background: #D0E4F5;
-   /* background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
-    background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
-    background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);*/
+    /* background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+     background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+     background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);*/
     border-top: 2px solid #444444;
 }
+
 table.blueTable tfoot td {
     font-size: 14px;
 }
+
 table.blueTable tfoot .links {
     text-align: right;
 }
-table.blueTable tfoot .links a{
+
+table.blueTable tfoot .links a {
     display: inline-block;
     background: #1C6EA4;
     color: #FFFFFF;
@@ -223,10 +234,14 @@ table.blueTable tfoot .links a{
 /* Table style */
 
 
-
 /* login form */
-body {font-family: Arial, Helvetica, sans-serif;}
-form {border: 3px solid #f1f1f1;}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+form {
+    border: 3px solid #f1f1f1;
+}
 
 input[type=text], input[type=password] {
     width: 100%;
@@ -282,13 +297,15 @@ span.psw {
         display: block;
         float: none;
     }
+
     .cancelbtn {
         width: 100%;
     }
 }
+
 /* login form */
 
-
+/* Message erreur */
 .cards {
     display: flex;
     flex-direction: column;
@@ -296,3 +313,19 @@ span.psw {
     background-color: #ff6a6a;
     margin: 0 0 10px 20px;
 }
+
+/* Message erreur */
+
+/* Icon langue */
+.nav-langue{
+    display: flex;
+
+    align-items: center;
+
+}
+.img-langue {
+    margin:15px;
+    width: 25px;
+}
+
+/* Icon langue */

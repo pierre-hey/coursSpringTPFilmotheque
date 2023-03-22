@@ -11,9 +11,9 @@
     <nav>
         <ul>
             <li>
-                <h2>
-                    <a th:href="@{/}" th:text="'Filmothèque ' +
-                     ${session.memberLogged != null ? '[' + session.memberLogged.userName  + ']': ''}"></a>
+                <h2 class="nav-h2">
+                  <a th:href="@{/}" th:text="#{nav.h1}"></a>
+                    <th:block th:href="@{/}" th:text="${session.memberLogged != null ? '[' + session.memberLogged.userName  + ']': ''}"></th:block>
                 </h2>
             </li>
             <li class="menu-deroulant">
@@ -33,7 +33,12 @@
             </li>
             <li><a th:if="${session.memberLogged == null}" th:href="@{/login}">Connexion</a></li>
             <li><a th:if="${session.memberLogged != null}" th:href="@{/logout}">Déconnexion</a></li>
-            <li><a href="#">Contactez-nous</a></li>
+            <li>
+                <div class="nav-langue">
+                    <a href="/?language=fr"><img class="img-langue" alt="Français" src="/images/French.webp"></a>
+                    <a href="/?language=en"><img class="img-langue" alt="English" src="/images/English.webp"></a>
+                </div>
+            </li>
         </ul>
     </nav>
 </div>
