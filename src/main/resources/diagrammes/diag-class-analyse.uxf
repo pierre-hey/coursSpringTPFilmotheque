@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.0.0">
+  <zoom_level>4</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>72</y>
+      <w>72</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Member
+--
+-id: Integer
+-userName: String
+-password: String
+-isAdmin : Boolean</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>916</x>
+      <y>0</y>
+      <w>84</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>Movie
+--
+-id: Integer
+-title: String
+-yearRelease: Integer
+-duration: Double
+-synopsis: String
+
+--
+-director: Director
+-genre: Genre
+-actors: List&lt;Actor&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1056</x>
+      <y>8</y>
+      <w>84</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>Participant
+--
+-id: Integer
+-firstName: String
+-lastName: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>796</x>
+      <y>16</y>
+      <w>80</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Opinion
+--
+-id: Integer
+-rating: Integer
+-comment: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>732</x>
+      <y>24</y>
+      <w>72</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=*
+m1=1
+</panel_attributes>
+    <additional_attributes>10.0;110.0;10.0;20.0;160.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>872</x>
+      <y>32</y>
+      <w>52</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=1
+m1=*
+</panel_attributes>
+    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>924</x>
+      <y>128</y>
+      <w>68</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>Genre
+--
+-id: Integer
+-name: String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>952</x>
+      <y>72</y>
+      <w>16</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m2=1
+m1=*
+</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>996</x>
+      <y>24</y>
+      <w>68</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>director
+lt=-
+m2=1
+m1=*
+</panel_attributes>
+    <additional_attributes>10.0;20.0;150.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>996</x>
+      <y>36</y>
+      <w>68</w>
+      <h>20</h>
+    </coordinates>
+    <panel_attributes>lt=-
+actor
+m2=*
+m1=*
+</panel_attributes>
+    <additional_attributes>10.0;20.0;150.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>668</x>
+      <y>248</y>
+      <w>384</w>
+      <h>244</h>
+    </coordinates>
+    <panel_attributes>fr.eni.movies.services
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>404</x>
+      <y>216</y>
+      <w>788</w>
+      <h>664</h>
+    </coordinates>
+    <panel_attributes>Correction</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>700</x>
+      <y>300</y>
+      <w>84</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>*MovieService*
+--
++addMovie(Movie m)
++updateMovie(Movie m)
++deleteMovie(Movie m)
++detailMovie(int id)
++listMovies()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>836</x>
+      <y>292</y>
+      <w>84</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>*DirectorService*
+--
++addDirector(Director d)
++updateDirector(Director d)
++deleteDirector(Director d)
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>932</x>
+      <y>292</y>
+      <w>84</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>*ActorService*
+--
++addActor(Actor a)
++updateActor(Actor a)
++deleteActor(Actor a)
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>704</x>
+      <y>400</y>
+      <w>84</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>*CategorieService*
+--
++addCategorie(Movie m)
++updateCategorie(Movie m)
++deleteCategorie(Movie m)
++listCategories()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>844</x>
+      <y>412</y>
+      <w>84</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>*ReviewService*
+--
++addReview(Review r)
++ listReviews()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>480</x>
+      <y>520</y>
+      <w>580</w>
+      <h>324</h>
+    </coordinates>
+    <panel_attributes>fr.eni.movies.entities
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>684</x>
+      <y>548</y>
+      <w>84</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>*Movie*
+--
+-id: Integer
+-title: String
+-year: Integer
+-duration: Double
+-synopsis: String
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>856</x>
+      <y>556</y>
+      <w>84</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>*Review*
+--
+-id: Integer
+-mark: String
+-comment: Integer
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>540</x>
+      <y>708</y>
+      <w>84</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>*Participant*
+--
+-id: Integer
+-lastName: String
+-firstName: Integer
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>688</x>
+      <y>720</y>
+      <w>84</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>*Genre*
+--
+-id: Integer
+-name: String
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>764</x>
+      <y>592</y>
+      <w>100</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*
+m2=1</panel_attributes>
+    <additional_attributes>230.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>548</x>
+      <y>572</y>
+      <w>144</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1 director
+m2=*</panel_attributes>
+    <additional_attributes>10.0;340.0;10.0;10.0;340.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>724</x>
+      <y>620</y>
+      <w>16</w>
+      <h>108</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1
+m2=*</panel_attributes>
+    <additional_attributes>10.0;250.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>588</x>
+      <y>596</y>
+      <w>104</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=* actors
+m2=*</panel_attributes>
+    <additional_attributes>10.0;280.0;10.0;10.0;240.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>868</x>
+      <y>696</y>
+      <w>84</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>*Member*
+--
+-id: Integer
+-lastName: String
+-firstName: Integer
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>904</x>
+      <y>628</y>
+      <w>16</w>
+      <h>76</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=*
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+</diagram>

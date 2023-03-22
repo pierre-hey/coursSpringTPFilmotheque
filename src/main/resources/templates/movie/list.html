@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html  lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Filmothèque</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+
+<div class="content">
+    <h1>Les films de l'ENI</h1>
+
+    <table class="blueTable">
+        <thead>
+        <tr>
+            <th>Genre</th>
+            <th>Année</th>
+            <th>Titre</th>
+            <th>Réalisateur</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tr th:each="movie : ${moviesList}">
+            <td th:text="${movie.genre.name}"></td>
+            <td th:text="${movie.year}"></td>
+            <td th:text="${movie.title}"></td>
+            <td th:text="${movie.director.lastName} + ' ' + ${movie.director.firstName}"></td>
+            <td><a th:href="@{movies/detail(id=${movie.id})}">Details</a></td>
+
+        </tr>
+    </table>
+</div>
+
+
+</body>
+</html>

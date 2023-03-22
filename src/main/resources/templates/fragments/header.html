@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<div th:fragment="header">
+    <nav>
+        <ul>
+            <li><h2><a th:href="@{/}">Filmothèque</a></h2></li>
+            <li class="menu-deroulant">
+                <a th:href="@{/movies}">Films</a>
+                <ul class="sous-menu">
+                    <li><a href="#">Ajouter</a></li>
+                    <li><a href="#">tousdoux</a></li>
+                    <li><a href="#">tousdoux</a></li>
+                </ul>
+            </li>
+            <li class="menu-deroulant">
+                <a href="#">TODO</a>
+                <ul class="sous-menu">
+                    <li><a href="#">tousdoux</a></li>
+                    <li><a href="#">tousdoux</a></li>
+                </ul>
+            </li>
+            <li><a href="#">À propos</a></li>
+            <li><a href="#">Contactez-nous</a></li>
+        </ul>
+    </nav>
+</div>
+
+</body>
+</html>

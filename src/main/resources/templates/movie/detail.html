@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Filmothèque</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<div th:replace="~{fragments/header :: header}"></div>
+
+
+<div class="content" th:object="${movie}">
+    <h1>Détail du film</h1>
+    <label>Genre :
+        <input disabled type="text" th:value="*{genre.name}">
+    </label>
+    <label>Année :
+        <input disabled type="text" th:value="*{year}">
+    </label>
+    <label>Titre :
+        <input disabled type="text" th:value="*{title}">
+    </label>
+    <label>Réalisateur :
+        <input disabled type="text" th:value="*{director.lastName} + ' ' + *{director.firstName}">
+    </label>
+    <label> Durée :
+        <input disabled type="text" th:value="*{duration}">
+    </label>
+
+    <label> Acteur(s) :
+        <select disabled multiple>
+            <option th:each="actor : *{actors}"
+                    th:text="${'- ' + actor.firstName + ' ' + actor.lastName}">
+            </option>
+        </select>
+    </label>
+
+    <label>Synopsis :
+        <textarea style="resize: none;" rows="4" cols="50" disabled th:text="*{synopsis}"></textarea>
+    </label>
+</div>
+
+</body>
+</html>
