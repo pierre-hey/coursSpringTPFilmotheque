@@ -62,7 +62,7 @@ public class MovieController {
 
         Integer lastId = Collections.max(idlist);
 
-        movie.setId(lastId);
+        movie.setId(lastId + 1);
         System.out.println("##############");
         System.out.println(movie);
         System.out.println("##############");
