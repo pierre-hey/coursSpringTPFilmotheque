@@ -1,6 +1,8 @@
 package fr.eni.movielibrary.mmi.controller;
 
+import fr.eni.movielibrary.bll.GenreService;
 import fr.eni.movielibrary.bll.MovieService;
+import fr.eni.movielibrary.bll.ParticipantService;
 import fr.eni.movielibrary.bo.Member;
 import fr.eni.movielibrary.bo.Movie;
 import jakarta.servlet.http.HttpSession;
@@ -13,20 +15,21 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-//@Component("movieBean")
 @Controller
 @RequestMapping("/movies")
 public class MovieController {
 
     private final MovieService movieService;
+    private final GenreService genreService;
+    private final ParticipantService participantService;
 
     @Autowired // Injection sur le constructeur du controller
-    public MovieController(MovieService movieService) {
+    public MovieController(MovieService movieService, GenreService genreService, ParticipantService participantService) {
         this.movieService = movieService;
+        this.genreService = genreService;
+        this.participantService = participantService;
     }
 
     @GetMapping
@@ -37,7 +40,7 @@ public class MovieController {
     }
 
     @GetMapping("/detail")
-    public ModelAndView showMovieDetailView(@RequestParam(name = "id") long id) {
+    public ModelAndView showMovieDetailView(@RequestParam(name = "id") Integer id) {
 
 
         Movie movie = movieService.getMovieById(id);
@@ -49,8 +52,8 @@ public class MovieController {
     public ModelAndView addMovieView(HttpSession session) {
         if (!ObjectUtils.isEmpty(session.getAttribute("memberLogged"))) {
             ModelAndView modelAndView = new ModelAndView("movie/add");
-            modelAndView.addObject("participantsList", movieService.getParticipants());
-            modelAndView.addObject("genreList", movieService.getGenres());
+            modelAndView.addObject("participantsList", participantService.getALlParticipants());
+            modelAndView.addObject("genreList", genreService.getAllGenres());
 
             modelAndView.addObject("movie", new Movie());
             return modelAndView;
@@ -67,18 +70,18 @@ public class MovieController {
             System.out.println(movie);
             System.out.println("##############");
 
-            List<Movie> moviesExist = movieService.getAllMovies();
+/*            List<Movie> moviesExist = movieService.getAllMovies();
             List<Integer> idlist = new ArrayList<>();
             moviesExist.forEach(m -> idlist.add(m.getId()));
             Integer lastId = Collections.max(idlist);
-            movie.setId(lastId + 1);
+            movie.setId(lastId + 1);*/
 
             if (!result.hasErrors()) {
                 movieService.saveMovie(movie);
             } else {
                 result.getAllErrors().forEach(e -> System.out.println(e.getDefaultMessage()));
-                model.addAttribute("participantsList", movieService.getParticipants());
-                model.addAttribute("genreList", movieService.getGenres());
+                model.addAttribute("participantsList", participantService.getALlParticipants());
+                model.addAttribute("genreList", genreService.getAllGenres());
                 model.addAttribute("movie", movie);
                 //return "redirect:/movies/add";
                 return "movie/add";
@@ -88,6 +91,15 @@ public class MovieController {
             System.out.println("Vous n'êtes pas connecté");
             return "redirect:/login";
         }
+        return "redirect:/movies";
+    }
+
+    @GetMapping("/delete")
+    public String deleteMovie(@RequestParam(name = "id") Integer id) {
+
+        Movie movie = movieService.getMovieById(id);
+        movieService.deleteMovie(movie);
+
         return "redirect:/movies";
     }
 }

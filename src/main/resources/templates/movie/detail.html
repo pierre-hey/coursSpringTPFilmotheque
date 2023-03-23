@@ -43,7 +43,7 @@
     <label> Commentaire : </label>
     <ul>
         <li th:each="opinion : *{opinions}"
-            th:text="${opinion.comment} + ' (' + ${opinion.member.userName} +')'"></li>
+            th:text="${opinion.comment} + ' (' + ${opinion.member.getLogin} +')'"></li>
     </ul>
     </span>
 

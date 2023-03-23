@@ -19,8 +19,11 @@ public class OpinionController {
 
     private final MovieService movieService;
 
+
+
     public OpinionController(MovieService movieService) {
         this.movieService = movieService;
+
     }
 
     @GetMapping("/add")
@@ -48,6 +51,7 @@ public class OpinionController {
             Movie movie = movieService.getMovieById(id);
             movie.addOpinion(opinion);
 
+            movieService.saveMovie(movie);
 
             System.out.println("####### Ajout d'un avis #######");
             System.out.println(opinion);

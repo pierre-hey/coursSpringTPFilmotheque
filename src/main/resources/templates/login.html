@@ -13,23 +13,23 @@
 
         <div class="container">
             <label for="uname"><b th:text="#{viewloginform.login}">Username</b>
-                <input type="text" th:placeholder="#{viewloginform.login}" id="uname" required
-                       th:field="*{userName}">
+                <input type="text" id="uname" required
+                       th:field="*{login}">
             </label>
             <label for="psw"><b th:text="#{viewloginform.password}">Password</b>
-                <input type="password" th:placeholder="#{viewloginform.login}" id="psw" required name="password"
+                <input type="password" id="psw" required name="password"
                        th:field="*{password}">
             </label>
             <button type="submit" th:text="#{viewloginform.submit}">Login</button>
-            <label>
-                <input type="checkbox" checked="checked" id="remember"> Remember me
-            </label>
+<!--            <label>-->
+<!--                <input type="checkbox" checked="checked" id="remember"> Remember me-->
+<!--            </label>-->
         </div>
 
-        <div class="container" style="background-color:#f1f1f1">
-            <button type="button" class="cancelbtn">Cancel</button>
-            <span class="psw">Forgot <a href="#">password?</a></span>
-        </div>
+<!--        <div class="container" style="background-color:#f1f1f1">-->
+<!--            <button type="button" class="cancelbtn">Cancel</button>-->
+<!--            <span class="psw">Forgot <a href="#">password?</a></span>-->
+<!--        </div>-->
     </form>
 </div>
 

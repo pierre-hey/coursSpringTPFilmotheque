@@ -13,7 +13,7 @@
             <li>
                 <h2 class="nav-h2">
                   <a th:href="@{/}" th:text="#{nav.h1}"></a>
-                    <th:block th:href="@{/}" th:text="${session.memberLogged != null ? '[' + session.memberLogged.userName  + ']': ''}"></th:block>
+                    <th:block th:href="@{/}" th:text="${session.memberLogged != null ? '[' + session.memberLogged.login  + ']': ''}"></th:block>
                 </h2>
             </li>
             <li class="menu-deroulant">
