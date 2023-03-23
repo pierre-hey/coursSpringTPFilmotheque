@@ -27,19 +27,18 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login(Member member, HttpSession session) {
+    public String login(Member memberForm, HttpSession session) {
 
 
         System.out.println("####### Information de connexion #######");
-        System.out.println(member);
+        System.out.println(memberForm);
         System.out.println("##############");
 
         // Si les informations du formulaire sont conformes à ce qu'il y a dans le mock
         // le membre est connecté, sinon renvoie vers la page de connexion
-        if (!ObjectUtils.isEmpty(member.getLogin()) && !ObjectUtils.isEmpty(member.getPassword())) {
-            // TODO MembreService tape sur le MOCK
-            Member memberChecked = memberService.checkParticipantByLoginAndPassword(member.getLogin(),
-                    member.getPassword());
+        if (!ObjectUtils.isEmpty(memberForm.getLogin()) && !ObjectUtils.isEmpty(memberForm.getPassword())) {
+            Member memberChecked = memberService.checkParticipantByLoginAndPassword(memberForm.getLogin(),
+                    memberForm.getPassword());
 
             if (!ObjectUtils.isEmpty(memberChecked)) {
                 // Logged => on met le membre en session

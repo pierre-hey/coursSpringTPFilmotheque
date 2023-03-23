@@ -6,9 +6,10 @@ import fr.eni.movielibrary.dal.MemberDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 @Service
-@Profile("pasdev")
+@Profile("dev")
 public class MemberServiceImpl implements MemberService {
 
     private final MemberDAO memberDAO;
@@ -19,12 +20,26 @@ public class MemberServiceImpl implements MemberService {
     }
 
     @Override
-    public Member checkParticipantByLoginAndPassword(String userName, String password) {
+    public Member checkParticipantByLoginAndPassword(String login, String password) {
+
+        // Recherche en bdd le membre par son login
+        Member member = findMemberByLogin(login);
+        // Si le membre est trouvé par son login, on vérifie le mdp, si les mdp sont identiques -> on retourne le membre, sinon null
+        if (!ObjectUtils.isEmpty(member)) {
+            if (password.equals(member.getPassword())) {
+                return member;
+            }
+        }
         return null;
     }
 
     @Override
     public Member findMemberByLogin(String login) {
         return memberDAO.findMemberByLogin(login);
+    }
+
+    @Override
+    public void updateMember(Member member) {
+        memberDAO.save(member);
     }
 }

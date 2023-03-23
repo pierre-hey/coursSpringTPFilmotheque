@@ -10,7 +10,7 @@ import org.springframework.util.ObjectUtils;
 
 
 @Service
-@Profile("dev")
+@Profile("pasdev")
 public class MemberServiceMock implements MemberService {
 
     private final MemberDAO memberDAO;
@@ -38,5 +38,10 @@ public class MemberServiceMock implements MemberService {
     @Override
     public Member findMemberByLogin(String login) {
         return memberDAO.findMemberByLogin(login);
+    }
+
+    @Override
+    public void updateMember(Member member) {
+        memberDAO.save(member);
     }
 }

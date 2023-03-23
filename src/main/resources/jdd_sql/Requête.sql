@@ -50,8 +50,11 @@ VALUES 	(1, 3),
 			(2, 5),
 			(3, 6),
 			(3, 7);
- 		
-SELECT * FROM movie_actors;
 
+
+
+SELECT * FROM movie_actors;
 SELECT * FROM movie;
 SELECT * FROM opinion;
+SELECT * FROM member;
+SELECT * FROM hobby;

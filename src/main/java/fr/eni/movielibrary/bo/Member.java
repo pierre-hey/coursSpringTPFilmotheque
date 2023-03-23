@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Data
 @AllArgsConstructor
@@ -19,6 +22,11 @@ public class Member {
     private String login;
     private String password;
     private Boolean isAdmin;
+
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "hobby", joinColumns = @JoinColumn(name = "id_hobby", referencedColumnName = "id"))
+    private List<String> hobbies = new ArrayList<>();
+
 
 /*    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @JoinColumn(name = "member_id")
@@ -35,4 +43,9 @@ public class Member {
                 ", isAdmin=" + isAdmin +
                 '}';
     }
+
+    public void addHobby(String hobby){
+        this.hobbies.add(hobby);
+    }
+
 }
