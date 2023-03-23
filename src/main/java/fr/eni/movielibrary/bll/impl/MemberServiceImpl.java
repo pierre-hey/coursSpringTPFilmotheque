@@ -27,4 +27,9 @@ public class MemberServiceImpl implements MemberService {
     public Member findMemberByLogin(String login) {
         return memberDAO.findMemberByLogin(login);
     }
+
+    @Override
+    public void updateMember(Member member) {
+        memberDAO.save(member);
+    }
 }

@@ -8,4 +8,5 @@ public interface MemberService {
 
     Member findMemberByLogin(String login);
 
+    void updateMember(Member member);
 }
