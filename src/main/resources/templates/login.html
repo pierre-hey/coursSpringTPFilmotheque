@@ -8,19 +8,19 @@
 <body>
 <div th:replace="~{fragments/header :: header}"></div>
 <div class="content">
-    <h1>Se connecter</h1>
+    <h1 th:text="#{viewloginform.h1}">Se connecter</h1>
     <form th:action="@{/login}" th:object="${member}" method="post">
 
         <div class="container">
-            <label for="uname"><b>Username</b>
-                <input type="text" placeholder="Enter Username" id="uname" required
+            <label for="uname"><b th:text="#{viewloginform.login}">Username</b>
+                <input type="text" th:placeholder="#{viewloginform.login}" id="uname" required
                        th:field="*{userName}">
             </label>
-            <label for="psw"><b>Password</b>
-                <input type="password" placeholder="Enter Password" id="psw" required name="password"
+            <label for="psw"><b th:text="#{viewloginform.password}">Password</b>
+                <input type="password" th:placeholder="#{viewloginform.login}" id="psw" required name="password"
                        th:field="*{password}">
             </label>
-            <button type="submit">Login</button>
+            <button type="submit" th:text="#{viewloginform.submit}">Login</button>
             <label>
                 <input type="checkbox" checked="checked" id="remember"> Remember me
             </label>
