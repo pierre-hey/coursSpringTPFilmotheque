@@ -1,7 +1,7 @@
 USE `db-movies`;
 INSERT INTO member(last_name,first_name,login,password,is_admin)
 VALUES 	
-			('Pierre', 'moi','Pierre','1234',TRUE),
+			('Pierre', 'moi','Pierre','a',TRUE),
 			('Baille', 'Anne-Lise', 'abaille@campus-eni.fr', 'Pa$$w0rd', TRUE),
  			('Gobin', 'Stéphane', 'sgobin@campus-eni.fr', 'Pa$$w0rd', FALSE),
  			('Trillard', 'Julien', 'jtrillard@campus-eni.fr', 'Pa$$w0rd', FALSE);
@@ -50,11 +50,12 @@ VALUES 	(1, 3),
 			(2, 5),
 			(3, 6),
 			(3, 7);
-
-
-
+ 		
 SELECT * FROM movie_actors;
+
 SELECT * FROM movie;
 SELECT * FROM opinion;
+
+
 SELECT * FROM member;
 SELECT * FROM hobby;
