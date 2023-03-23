@@ -10,7 +10,7 @@ import org.springframework.util.ObjectUtils;
 
 
 @Service
-@Profile("dev")
+@Profile("pasdev")
 public class MemberServiceMock implements MemberService {
 
     private final MemberDAO memberDAO;
