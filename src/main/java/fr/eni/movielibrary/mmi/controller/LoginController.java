@@ -36,8 +36,9 @@ public class LoginController {
 
         // Si les informations du formulaire sont conformes à ce qu'il y a dans le mock
         // le membre est connecté, sinon renvoie vers la page de connexion
-        if (!ObjectUtils.isEmpty(member)) {
-            Member memberChecked = memberService.findParticipantByUserNameAndPassword(member.getUserName(),
+        if (!ObjectUtils.isEmpty(member.getLogin()) && !ObjectUtils.isEmpty(member.getPassword())) {
+            // TODO MembreService tape sur le MOCK
+            Member memberChecked = memberService.checkParticipantByLoginAndPassword(member.getLogin(),
                     member.getPassword());
 
             if (!ObjectUtils.isEmpty(memberChecked)) {

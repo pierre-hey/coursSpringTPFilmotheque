@@ -1,11 +1,13 @@
 package fr.eni.movielibrary.bo;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,12 +15,16 @@ import java.util.List;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-public class Movie {
+@Entity
+public class Movie implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotNull(message = "Le titre est obligatoire")
     @NotBlank(message = "Ne doit pas être vide")
+    @Column(length = 250, nullable = false) // Longueur max d'une insertion dans la bdd et non nul
     private String title;
 
 
@@ -31,14 +37,22 @@ public class Movie {
 
     @Size(min = 1, max = 250, message = "Le commentaire doit faire entre 1 et 250 caractères")
     @NotBlank(message = "Ne doit pas être vide")
+    @Column(length = 250, nullable = false)
     private String synopsis;
 
-
+    @NotNull
+    @ManyToOne(fetch = FetchType.EAGER)
     private Genre genre;
 
     @NotNull(message = "Le réalisateur du film est obligatoire")
+    @ManyToOne(fetch = FetchType.EAGER)
     private Participant director;
+
+    @ManyToMany
     private List<Participant> actors;
+
+    @OneToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
+    @JoinColumn(name = "movie_id")
     private List<Opinion> opinions = new ArrayList<>();
 
 

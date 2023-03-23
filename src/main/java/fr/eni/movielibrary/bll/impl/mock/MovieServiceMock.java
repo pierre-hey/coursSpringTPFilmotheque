@@ -1,4 +1,4 @@
-package fr.eni.movielibrary.bll.impl;
+package fr.eni.movielibrary.bll.impl.mock;
 
 import fr.eni.movielibrary.bll.MovieService;
 import fr.eni.movielibrary.bo.Genre;
@@ -9,27 +9,26 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
-@Profile("dev")
+@Profile("pasdev")
 public class MovieServiceMock implements MovieService {
 	// Attributs static pour gérer les valeurs à afficher
 	private static List<Movie> lstMovies;
-	private static List<Genre> lstGenres;
-	private static List<Participant> lstParticipants;
 
 	private static final String[] genres = { "Animation", "Science-fiction", "Documentaire", "Action", "Comédie",
 			"Drame" };
 
 	public MovieServiceMock() {
 		// Création de la liste des genres
-		lstGenres = new ArrayList<>();
+		List<Genre> lstGenres = new ArrayList<>();
 		for (int index = 0; index < genres.length; index++) {
 			lstGenres.add(new Genre(index + 1, genres[index]));
 		}
 
 		// Création de la liste des participants
-		lstParticipants = new ArrayList<>();
+		List<Participant> lstParticipants = new ArrayList<>();
 		// 2 réalisateurs dont 1 pour 2 films
 		Participant stevenSpielberg = new Participant(1, "Spielberg", "Steven");
 		Participant davidCronenberg = new Participant(2, "Cronenberg", "David");
@@ -88,40 +87,10 @@ public class MovieServiceMock implements MovieService {
 	}
 
 	@Override
-	public Movie getMovieById(long id) {
+	public Movie getMovieById(Integer id) {
 		for (Movie movie : lstMovies) {
-			if (movie.getId() == id) {
+			if (Objects.equals(movie.getId(), id)) {
 				return movie;
-			}
-		}
-		return null;
-	}
-
-	@Override
-	public List<Genre> getGenres() {
-		return lstGenres;
-	}
-
-	@Override
-	public List<Participant> getParticipants() {
-		return lstParticipants;
-	}
-
-	@Override
-	public Genre getGenreById(long id) {
-		for (Genre genre : lstGenres) {
-			if (genre.getId() == id) {
-				return genre;
-			}
-		}
-		return null;
-	}
-
-	@Override
-	public Participant getParticipantById(long id) {
-		for (Participant participant : lstParticipants) {
-			if (participant.getId() == id) {
-				return participant;
 			}
 		}
 		return null;
@@ -130,5 +99,10 @@ public class MovieServiceMock implements MovieService {
 	@Override
 	public void saveMovie(Movie movie) {
 		lstMovies.add(movie);
+	}
+
+	@Override
+	public void deleteMovie(Movie movie) {
+		lstMovies.remove(movie);
 	}
 }
