@@ -4,13 +4,44 @@ import fr.eni.movielibrary.bo.Movie;
 
 import java.util.List;
 
+/**
+ * Service de la classe Movie
+ */
 public interface MovieService {
 
-    List<Movie> getAllMovies();
+    /**
+     * Recherche tous les films
+     *
+     * @return liste de film
+     */
+    List<Movie> findAllMovies();
 
-    Movie getMovieById(Integer id);
+    /**
+     * Recherche un film par son id
+     *
+     * @param id id du film
+     * @return film
+     */
+    Movie findMovieById(Integer id);
 
-    void saveMovie(Movie movie);
+    /**
+     * Créé un film
+     *
+     * @param movie film
+     */
+    void createMovie(Movie movie);
 
+    /**
+     * Supprime un film
+     *
+     * @param movie film
+     */
     void deleteMovie(Movie movie);
+
+    /**
+     * Met à jour un film
+     *
+     * @param movie film
+     */
+    void updateMovie(Movie movie);
 }

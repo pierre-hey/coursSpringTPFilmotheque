@@ -21,6 +21,6 @@ public class StringToGenreConverter implements Converter<String, Genre> {
 	@Override
 	public Genre convert(String id) {
 		Integer theId = Integer.parseInt(id);
-		return service.getGenreById(theId);
+		return service.findGenreById(theId);
 	}
 }

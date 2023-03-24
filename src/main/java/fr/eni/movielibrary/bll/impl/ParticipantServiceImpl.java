@@ -19,12 +19,12 @@ public class ParticipantServiceImpl implements ParticipantService {
     }
 
     @Override
-    public List<Participant> getALlParticipants() {
+    public List<Participant> findALlParticipants() {
         return (List<Participant>) participantDAO.findAll();
     }
 
     @Override
-    public Participant getParticipantById(Integer id) {
+    public Participant findParticipantById(Integer id) {
         return participantDAO.findById(id).orElse(null);
     }
 }

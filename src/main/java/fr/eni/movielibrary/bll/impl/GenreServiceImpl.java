@@ -17,12 +17,12 @@ public class GenreServiceImpl implements GenreService {
     }
 
     @Override
-    public List<Genre> getAllGenres() {
+    public List<Genre> findAllGenres() {
         return (List<Genre>) genreDAO.findAll();
     }
 
     @Override
-    public Genre getGenreById(Integer id) {
+    public Genre findGenreById(Integer id) {
         return genreDAO.findById(id).orElse(null);
     }
 }

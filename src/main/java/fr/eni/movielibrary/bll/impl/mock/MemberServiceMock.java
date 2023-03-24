@@ -44,4 +44,9 @@ public class MemberServiceMock implements MemberService {
     public void updateMember(Member member) {
         memberDAO.save(member);
     }
+
+    @Override
+    public Member findMemberByLoginAndPassword(String login, String password) {
+        return null;
+    }
 }

@@ -21,23 +21,28 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public List<Movie> getAllMovies() {
+    public List<Movie> findAllMovies() {
         return (List<Movie>) movieDao.findAll();
     }
 
     @Override
-    public Movie getMovieById(Integer id) {
+    public Movie findMovieById(Integer id) {
         return movieDao.findById(id).orElse(null);
     }
 
     @Override
-    public void saveMovie(Movie movie) {
+    public void createMovie(Movie movie) {
         movieDao.save(movie);
     }
 
     @Override
     public void deleteMovie(Movie movie) {
         movieDao.delete(movie);
+    }
+
+    @Override
+    public void updateMovie(Movie movie) {
+        movieDao.save(movie);
     }
 
 

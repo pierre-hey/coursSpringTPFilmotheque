@@ -19,6 +19,6 @@ public class StringToParticipantConverter implements Converter<String, Participa
 	@Override
 	public Participant convert(String id) {
 		Integer theId = Integer.parseInt(id);
-		return service.getParticipantById(theId);
+		return service.findParticipantById(theId);
 	}
 }
