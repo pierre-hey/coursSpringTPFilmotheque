@@ -34,7 +34,7 @@ public class MovieController {
 
     @GetMapping
     public ModelAndView showAllMovies() {
-        List<Movie> moviesList = movieService.getAllMovies();
+        List<Movie> moviesList = movieService.findAllMovies();
 
         return new ModelAndView("movie/list", "moviesList", moviesList);
     }
@@ -43,7 +43,7 @@ public class MovieController {
     public ModelAndView showMovieDetailView(@RequestParam(name = "id") Integer id) {
 
 
-        Movie movie = movieService.getMovieById(id);
+        Movie movie = movieService.findMovieById(id);
 
         return new ModelAndView("movie/detail", "movie", movie);
     }
@@ -52,8 +52,8 @@ public class MovieController {
     public ModelAndView addMovieView(HttpSession session) {
         if (!ObjectUtils.isEmpty(session.getAttribute("memberLogged"))) {
             ModelAndView modelAndView = new ModelAndView("movie/add");
-            modelAndView.addObject("participantsList", participantService.getALlParticipants());
-            modelAndView.addObject("genreList", genreService.getAllGenres());
+            modelAndView.addObject("participantsList", participantService.findALlParticipants());
+            modelAndView.addObject("genreList", genreService.findAllGenres());
 
             modelAndView.addObject("movie", new Movie());
             return modelAndView;
@@ -77,11 +77,11 @@ public class MovieController {
             movie.setId(lastId + 1);*/
 
             if (!result.hasErrors()) {
-                movieService.saveMovie(movie);
+                movieService.createMovie(movie);
             } else {
                 result.getAllErrors().forEach(e -> System.out.println(e.getDefaultMessage()));
-                model.addAttribute("participantsList", participantService.getALlParticipants());
-                model.addAttribute("genreList", genreService.getAllGenres());
+                model.addAttribute("participantsList", participantService.findALlParticipants());
+                model.addAttribute("genreList", genreService.findAllGenres());
                 model.addAttribute("movie", movie);
                 //return "redirect:/movies/add";
                 return "movie/add";
@@ -97,7 +97,7 @@ public class MovieController {
     @GetMapping("/delete")
     public String deleteMovie(@RequestParam(name = "id") Integer id) {
 
-        Movie movie = movieService.getMovieById(id);
+        Movie movie = movieService.findMovieById(id);
         movieService.deleteMovie(movie);
 
         return "redirect:/movies";

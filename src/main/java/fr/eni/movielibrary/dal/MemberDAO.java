@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MemberDAO extends CrudRepository<Member, Integer> {
     Member findMemberByLogin(String login);
+    Member findMemberByLoginAndPassword(String login, String password);
 }

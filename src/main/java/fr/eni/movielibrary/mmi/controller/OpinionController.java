@@ -31,7 +31,7 @@ public class OpinionController {
 
         if (!ObjectUtils.isEmpty(session.getAttribute("memberLogged"))) {
 
-            Movie movie = movieService.getMovieById(id);
+            Movie movie = movieService.findMovieById(id);
             ModelAndView modelAndView = new ModelAndView("opinion/add");
             modelAndView.addObject(movie);
 
@@ -48,10 +48,10 @@ public class OpinionController {
             Member memberLogged = (Member) session.getAttribute("memberLogged");
             opinion.setMember(memberLogged);
 
-            Movie movie = movieService.getMovieById(id);
+            Movie movie = movieService.findMovieById(id);
             movie.addOpinion(opinion);
 
-            movieService.saveMovie(movie);
+            movieService.createMovie(movie);
 
             System.out.println("####### Ajout d'un avis #######");
             System.out.println(opinion);

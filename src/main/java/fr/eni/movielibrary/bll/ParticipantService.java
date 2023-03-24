@@ -4,10 +4,24 @@ import fr.eni.movielibrary.bo.Participant;
 
 import java.util.List;
 
+/**
+ * Service de la classe Participant
+ */
 public interface ParticipantService {
 
-    List<Participant> getALlParticipants();
+    /**
+     * Recherche tous les participants
+     *
+     * @return liste de participant
+     */
+    List<Participant> findALlParticipants();
 
-    Participant getParticipantById(Integer id);
+    /**
+     * Recherche un participant par son id
+     *
+     * @param id id participant
+     * @return participant
+     */
+    Participant findParticipantById(Integer id);
 
 }
