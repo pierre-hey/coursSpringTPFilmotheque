@@ -1,6 +1,14 @@
 package fr.eni.movielibrary.bo;
 
-import jakarta.persistence.*;
+import jakarta.persistence.CollectionTable;
+import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +27,7 @@ public class Member {
     private Integer id;
     private String firstName;
     private String lastName;
+    @Column(nullable = false, unique = true) // Contraintes bdd
     private String login;
     private String password;
     private Boolean isAdmin;
