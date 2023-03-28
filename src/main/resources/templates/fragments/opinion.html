@@ -10,12 +10,12 @@
 <div th:fragment="opinion">
   <label>
     Note :
-    <input type="number" name="rating" min="0" max="5">
+    <input type="number" name="rating" min="0" max="5" th:value="${opinion?.rating}">
   </label>
 
   <label>
     Commentaire :
-    <textarea name="comment"></textarea>
+    <textarea name="comment" th:value="${opinion?.comment}"></textarea>
   </label>
 
 </div>

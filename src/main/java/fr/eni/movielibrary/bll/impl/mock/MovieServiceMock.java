@@ -3,6 +3,7 @@ package fr.eni.movielibrary.bll.impl.mock;
 import fr.eni.movielibrary.bll.MovieService;
 import fr.eni.movielibrary.bo.Genre;
 import fr.eni.movielibrary.bo.Movie;
+import fr.eni.movielibrary.bo.Opinion;
 import fr.eni.movielibrary.bo.Participant;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -116,5 +117,10 @@ public class MovieServiceMock implements MovieService {
             }
         });
         lstMovies.set(indexMovie.get(), movie);
+    }
+
+    @Override
+    public void saveOpinion(Opinion opinion, Movie movie) {
+
     }
 }

@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
+import org.hibernate.validator.internal.util.stereotypes.Lazy;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -41,17 +42,17 @@ public class Movie implements Serializable {
     private String synopsis;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Genre genre;
 
     @NotNull(message = "Le réalisateur du film est obligatoire")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     private Participant director;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     private List<Participant> actors;
 
-    @OneToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,orphanRemoval = true)
     @JoinColumn(name = "movie_id")
     private List<Opinion> opinions = new ArrayList<>();
 
@@ -65,7 +66,7 @@ public class Movie implements Serializable {
     }
 
     public void addOpinion(Opinion opinion){
-        this.opinions.add(opinion);
+        opinions.add(opinion);
     }
 
 }

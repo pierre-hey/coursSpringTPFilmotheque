@@ -1,6 +1,7 @@
 package fr.eni.movielibrary.bll;
 
 import fr.eni.movielibrary.bo.Movie;
+import fr.eni.movielibrary.bo.Opinion;
 
 import java.util.List;
 
@@ -44,4 +45,7 @@ public interface MovieService {
      * @param movie film
      */
     void updateMovie(Movie movie);
+
+    void saveOpinion(Opinion opinion, Movie movie);
+
 }
