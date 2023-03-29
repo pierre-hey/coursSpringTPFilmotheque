@@ -12,9 +12,12 @@
     <div class="cards" th:if="${#fields.hasErrors('*')}" >
         <h2>Veuillez vérifier vos champs</h2>
     </div>
+
     <label>
         Titre :
-        <input type="text" name="title" th:value="*{title}">
+<!--        <input type="text" name="title" th:value="*{title}">-->
+<!--  A la place de name et th:value => utiliser th:field      -->
+        <input type="text" th:field="*{title}">
     </label>
     <!-- Affichage de la liste des messages d'erreur liée au champ courant -->
     <ul class="cards" th:if="${#fields.hasErrors('title')}">

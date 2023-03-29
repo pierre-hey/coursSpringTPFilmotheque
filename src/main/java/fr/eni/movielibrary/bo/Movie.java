@@ -23,7 +23,7 @@ public class Movie implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @NotNull(message = "Le titre est obligatoire")
+//    @NotNull(message = "Le titre est obligatoire")
     @NotBlank(message = "Ne doit pas être vide")
     @Column(length = 250, nullable = false) // Longueur max d'une insertion dans la bdd et non nul
     private String title;

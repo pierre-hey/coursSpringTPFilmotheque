@@ -9,9 +9,12 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,10 +28,13 @@ public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @NotBlank(message = "Ne peut pas être vide")
     private String firstName;
+    @NotBlank(message = "Ne peut pas être vide")
     private String lastName;
     @Column(nullable = false, unique = true) // Contraintes bdd
     private String login;
+    @NotBlank(message = "Ne peut pas être vide")
     private String password;
     private Boolean isAdmin;
 
